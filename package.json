@@ -1,0 +1,34 @@
+{
+  "name": "init-app",
+  "version": "0.0.1",
+  "description": "A cli tool to create new applications.",
+  "main": "index.js",
+  "bin": "./bin/init-app",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PerryChi/init-app.git"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "author": "PerryChi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PerryChi/init-app/issues"
+  },
+  "homepage": "https://github.com/PerryChi/init-app#readme",
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "chalk": "^4.1.2",
+    "commander": "^9.4.0",
+    "inquirer": "^8.2.4",
+    "ora": "^5.4.1"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "download-git-repo": "^3.0.2"
+  }
+}

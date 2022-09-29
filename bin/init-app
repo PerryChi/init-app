@@ -1,0 +1,75 @@
+#! /usr/bin/env node
+
+// 1. 配置可执行命令 commander
+const program = require('commander');
+const chalk = require('chalk');
+// import chalk from 'chalk';
+// import add from './utils';
+// const add = require('./utils');
+
+
+const cleanArgs = (fullParam) => {
+  // console.log('12 fullParam', fullParam);
+  // fullParam.options.forEach((option) => {
+  //   const key = option.long.slice(2);
+  //   if (fullParam[key]) {
+
+  //   }
+  // });
+
+}
+
+// 核心功能： 1. 创建项目， 2. 更改配置文件， 3. UI界面 @vue-cli
+program
+  .command(`create <app-name>`)
+  .description('create a new project')
+  .option('-f, --force', 'overwrite target director if it exists.')
+  .option('-s, --slim', 'overwrite target director if it exists.')
+  .option('-t, --time', 'overwrite target director if it exists.')
+  .action((name, options, commandObj) => {
+    // console.log('12', name, '\n');
+    // console.log('14', options, '\n');
+    // console.log('15', commandObj, '\n');
+    require('../lib/create')(name, options)
+  })
+
+  program
+    .command('config [value]')
+    .description('inspect and modify the config')
+    .option('-g, --get <path>', 'get value from option')
+    .option('-s, --set <path> <value>')
+    .option('-d, --delete <path>', 'delete option from config')
+    .action((one, two, all) => {
+      console.log('37 one', one);
+      console.log('38 two', two);
+      console.log('39 all', all);
+      // 调用create模块去实现
+    })
+
+  program
+    .command('ui')
+    .description('start and open init-app ui')
+    .option('-p, --port <port>', 'Port used for the UI Server')
+    .action(() => {
+      // 调用UI模块去实现去
+    })
+
+program
+  .version(`init-app@${require('../package.json').version}`)
+  .usage(`<command> [option]`);
+
+program.on('--help', () => {
+  console.log(`\nRun ${chalk.cyan(`init-app <command> --help`)} show details.\n`);
+})
+// 解析用户执行命令传入的参数
+program.parse(process.argv);
+
+// console.log(process.argv);
+
+
+// 2. 我们要实现 脚手架 先做一个命令行交互的功能 inquirer
+
+// 3. 将模板下载下来 download-git-repo
+
+// 4. 根据用的选择动态的生成内容 metalsmith
+
